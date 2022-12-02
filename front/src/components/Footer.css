@@ -1,6 +1,13 @@
 /* footer */
 .fter {
-    /* background: rgb(255, 82, 169); */
-    /* background-color: bisque; */
-    background: rgb(34, 34, 34);
-  }
+  /* background: rgb(255, 82, 169); */
+  /* background-color: bisque; */
+  background: rgb(34, 34, 34);
+}
+
+.tree {
+  background-image: url(../images/trees_1.png);
+  width: 100%;
+  height: 50px;
+  background-repeat: repeat-x;
+}

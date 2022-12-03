@@ -16,9 +16,7 @@ export function Footer() {
 
       <footer class="py-3 fter">
         <div class="container">
-          <span class="text-white">
-            © {year} Gonzalo España. Todos los derechos reservados.
-          </span>
+          <span class="text-white">© {year} Gonzalo España</span>
         </div>
       </footer>
     </>

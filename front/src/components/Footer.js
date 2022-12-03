@@ -6,10 +6,20 @@ export function Footer() {
 
   return (
     <>
-      {/* <!-- footer --> */}
+      {/* pikachu */}
+      <div className="posititonPikachu mt-auto mt-3 mb-3">
+        <div className="initialPikachu">
+          <img
+            className="pikachuRunning"
+            src={require("../images/pikachu-running.gif")}
+            alt=""
+          />
+        </div>
+      </div>
+      {/* fin pikachu */}
 
       {/* arboles */}
-      <ol className="noBullets mt-auto mb-3">
+      <ol className="noBullets mb-3">
         <li className="tree"></li>
       </ol>
       {/* fin arboles */}

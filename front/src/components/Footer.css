@@ -11,3 +11,29 @@
   height: 50px;
   background-repeat: repeat-x;
 }
+
+.pikachuRunning {
+  height: 40px;
+  width: auto;
+}
+
+.posititonPikachu {
+  position: relative;
+  overflow: hidden;
+  height: 40px;
+}
+
+.initialPikachu {
+  position: absolute;
+  left: 100%;
+  animation: move 13s linear infinite;
+}
+
+@keyframes move {
+  from {
+    left: -25%;
+  }
+  to {
+    left: 100%;
+  }
+}

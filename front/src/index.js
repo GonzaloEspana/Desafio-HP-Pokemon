@@ -34,6 +34,7 @@ root.render(
         <li className="tree"></li>
       </ol>
       {/* fin arboles */}
+
       <Home />
       <Footer />
     </React.StrictMode>

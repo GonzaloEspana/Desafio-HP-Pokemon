@@ -18,11 +18,6 @@ export function TablePokemon() {
         <RowPokemon />
         <RowPokemon />
         <RowPokemon />
-        <RowPokemon />
-        <RowPokemon />
-        <RowPokemon />
-        <RowPokemon />
-        <RowPokemon />
       </tbody>
     </table>
   );

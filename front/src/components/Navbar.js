@@ -19,6 +19,18 @@ export function Navbar() {
             </a>
           </div>
         </nav>
+
+        {/* pikachu */}
+        <div className="posititonPikachu mt-3">
+          <div className="initialPikachu">
+            <img
+              className="pikachuRunning"
+              src={require("../images/pikachu-running.gif")}
+              alt=""
+            />
+          </div>
+        </div>
+        {/* fin pikachu */}
       </header>
     </>
   );

@@ -29,6 +29,11 @@
   animation: move 13s linear infinite;
 }
 
+/* detener pikachu al pasar el cursos por encima */
+.initialPikachu:hover {
+  animation-play-state: paused;
+}
+
 @keyframes move {
   from {
     left: -25%;

@@ -26,6 +26,9 @@ chrome-user-data
 *.swp
 *.swo
 
+# ambiente virtual
+venv
+
 packages/react-devtools-core/dist
 packages/react-devtools-extensions/chrome/build
 packages/react-devtools-extensions/chrome/*.crx

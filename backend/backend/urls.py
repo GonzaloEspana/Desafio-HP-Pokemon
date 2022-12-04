@@ -15,7 +15,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from api import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('api/generate_pokemons/', views.GeneratePokemons.as_view()),
+    path('api/getTypeGrass/', views.getTypeGrass.as_view()),
+    path('api/getByWeight/', views.getByWeight.as_view()),
+    path('api/getTypeFlying/', views.getTypeFlying.as_view()),
+    path('api/delete/', views.dropTablePokemon.as_view()),
+    
 ]

@@ -28,6 +28,10 @@ class GeneratePokemons(APIView):
                 reponsePokemon = {}
                 reponsePokemon["message"] = "Pokemon already exists"
                 response[str(i)] = reponsePokemon
+                if i == 50:
+                    # Si ya existen los 50 pokémones, se retorna un 1 indicando que ya estan creados
+                    response["Table full"] = 1
+                    return Response(response)
                 continue
 
             # obtener los datos de cada pokémon

@@ -19,7 +19,7 @@ export function RowPokemon({ pokemon }) {
         {/* Si existe type2 retorna "/ type2" caso contrario ""  */}
         {pokemon.type2 ? ` / ${pokemon.type2}` : ""}
       </td>
-      <td>{pokemon.height} metros</td>
+      <td>{pokemon.height} centímetros</td>
       <td>{pokemon.weight} kilos</td>
     </tr>
   );

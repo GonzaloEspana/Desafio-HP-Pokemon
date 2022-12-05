@@ -24,9 +24,9 @@ export function Footer() {
       </ol>
       {/* fin arboles */}
 
-      <footer class="py-3 fter">
-        <div class="container">
-          <span class="text-white">© {year} Gonzalo España</span>
+      <footer className="py-3 fter">
+        <div className="container">
+          <span className="text-white">© {year} Gonzalo España</span>
         </div>
       </footer>
     </>

@@ -1,9 +1,10 @@
 import { RowPokemon } from "./RowPokemon";
-import { useEffect, useState } from "react";
 
+// Genera la tabla de pokemones en base a la variable data
+// data: variable que contiene la info de los pokemones en formato json
 export function TablePokemon({ data }) {
   return (
-    <table class="table bg-light align-middle text-center rounded-4">
+    <table className="table bg-light align-middle text-center rounded-4">
       <thead>
         <tr>
           <th scope="col">Pokémon</th>

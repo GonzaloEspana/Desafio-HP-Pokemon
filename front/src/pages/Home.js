@@ -19,11 +19,10 @@ export function Home() {
       .then((response) => response.json())
       .then((data) => {
         console.log("entro a generar los pokemones");
-        // console.log(data);
         setContador(1);
       })
       .catch((err) => {
-        // console.log(err.message);
+        console.log(err.message);
         setContador(-1);
       });
   }, [contador]);
@@ -33,12 +32,10 @@ export function Home() {
     fetch(dataUrl)
       .then((response) => response.json())
       .then((data) => {
-        // console.log("entro");
-        // console.log(data);
         setPokemons(data);
       })
       .catch((err) => {
-        // console.log(err.message);
+        console.log(err.message);
       });
   }, [dataUrl, contador]);
 

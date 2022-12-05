@@ -19,8 +19,18 @@ export function RowPokemon({ pokemon }) {
         {/* Si existe type2 retorna "/ type2" caso contrario ""  */}
         {pokemon.type2 ? ` / ${pokemon.type2}` : ""}
       </td>
-      <td>{pokemon.height} centímetros</td>
-      <td>{pokemon.weight} kilos</td>
+      <td>
+        {/* Si la altura del pokemon es igual a 1 retorna "1 metro" en caso contrio "x metros" */}
+        {pokemon.height === 1
+          ? `${pokemon.height} metro`
+          : `${pokemon.height} metros`}
+      </td>
+      <td>
+        {/* Si el peso del pokemon es igual a 1 retorna "1 kilo" en caso contrio "x kilos" */}
+        {pokemon.weight === 1
+          ? `${pokemon.weight} kilo`
+          : `${pokemon.weight} kilos`}
+      </td>
     </tr>
   );
 }

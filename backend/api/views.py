@@ -49,7 +49,7 @@ class GeneratePokemons(APIView):
                     name=pokemon['name'],
                     type1=pokemon['types'][0]['type']['name'],
                     type2=pokemon['types'][1]['type']['name'] if len(pokemon['types']) > 1 else None,
-                    height=pokemon['height']*10,
+                    height=pokemon['height']/10,
                     weight=pokemon['weight']/10,
                     image_url=pokemon['sprites']['front_default'],
                     # image='uploads/'+str(i)+'.png'                    
@@ -130,7 +130,7 @@ class getTypeFlying(APIView):
         response = {}
         # if type1 or type2 of pokemon is flying and height is greater than 10 return all pokemon in the db
         for pokemon in Pokemon.objects.all():
-            if (pokemon.type1 == 'flying' or pokemon.type2 == 'flying') and pokemon.height > 10:
+            if (pokemon.type1 == 'flying' or pokemon.type2 == 'flying') and pokemon.height*100 > 10:
                 response[pokemon.id] = {
                 'id': pokemon.id,
                 'name': pokemon.name,

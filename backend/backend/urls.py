@@ -1,30 +1,21 @@
-"""backend URL Configuration
-
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/4.1/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-"""
-from django.contrib import admin
 from django.urls import path
 from api import views
 
+# urls posibles de acceso a la API
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    # Retorna todos los pokemones de la tabla
     path('api/getAllPokemons/', views.getAllPokemons.as_view()),
+    # Genera los pokemones en caso de que no existan
     path('api/generate_pokemons/', views.GeneratePokemons.as_view()),
+    # Retorna los tipo planta (grass)
     path('api/getTypeGrass/', views.getTypeGrass.as_view()),
+    # Retorna los que pesan más de 30 y menos de 80 kilos
     path('api/getByWeight/', views.getByWeight.as_view()),
+    # Retorna los son tipo volador (flying) y miden más de 10 centímetros
     path('api/getTypeFlying/', views.getTypeFlying.as_view()),
+    # Retorna todos los pokemones pero con su nombre invertido
     path('api/getReverseName/', views.getReverseName.as_view()),
+    # Borra la tabla de pokemones
     path('api/delete/', views.dropTablePokemon.as_view()),
     
 ]

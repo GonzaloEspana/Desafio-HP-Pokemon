@@ -9,7 +9,6 @@ class Pokemon(models.Model):
     height = models.FloatField()
     weight = models.FloatField()
     image_url = models.CharField(max_length=200, null=True, blank=True)
-    image = models.ImageField(upload_to='', null=True, blank=True)
 
     def __str__(self):
         return f"{self.id} - {self.name} - {self.type1} - {self.type2} - {self.height} - {self.weight}"

@@ -70,20 +70,39 @@ class GeneratePokemons(APIView):
                 response[str(i)] = reponsePokemon
         return Response(response)
 
+# Retorna todos los pokemones en la base de datos
+class getAllPokemons(APIView):
+    def get(self, request, format=None):
+        response = {}
+        pokemons = Pokemon.objects.all()
+        for pokemon in pokemons:
+            response[pokemon.id] = {
+                'id': pokemon.id,
+                'name': pokemon.name,
+                'type1': pokemon.type1,
+                'type2': pokemon.type2,
+                'height': pokemon.height,
+                'weight': pokemon.weight,
+                'image_url': pokemon.image_url,
+                # 'image': pokemon.image
+            }
+        return Response(response)
 # Retorna todos los pokemones que pesen entre 30 y 80
 class getByWeight(APIView):
     def get(self, request, format=None):
         response = {}
         pokemons = Pokemon.objects.filter(weight__gte=30, weight__lte=80)
         for pokemon in pokemons:
-            reponsePokemon = {}
-            reponsePokemon['name'] = pokemon.name
-            reponsePokemon['type1'] = pokemon.type1
-            reponsePokemon['type2'] = pokemon.type2
-            reponsePokemon['height'] = pokemon.height
-            reponsePokemon['weight'] = pokemon.weight
-            reponsePokemon['image_url'] = pokemon.image_url
-            response[str(pokemon.id)] = reponsePokemon
+            response[pokemon.id] = {
+                'id': pokemon.id,
+                'name': pokemon.name,
+                'type1': pokemon.type1,
+                'type2': pokemon.type2,
+                'height': pokemon.height,
+                'weight': pokemon.weight,
+                'image_url': pokemon.image_url,
+                # 'image': pokemon.image
+            }
         return Response(response)
 
 # Retorna todos los pokemones de tipo grass (planta)
@@ -93,16 +112,16 @@ class getTypeGrass(APIView):
         # if type1 or type2 of pokemon is grass return all pokemon in the db
         for pokemon in Pokemon.objects.all():
             if (pokemon.type1 == 'grass' or pokemon.type2 == 'grass'):
-                reponsePokemon = {}
-                reponsePokemon['name'] = pokemon.name
-                reponsePokemon['type1'] = pokemon.type1
-                reponsePokemon['type2'] = pokemon.type2
-                reponsePokemon['height'] = pokemon.height
-                reponsePokemon['weight'] = pokemon.weight
-                reponsePokemon['image_url'] = pokemon.image_url
-
-                print(pokemon.image)
-                response[str(pokemon.id)] = reponsePokemon
+                response[pokemon.id] = {
+                'id': pokemon.id,
+                'name': pokemon.name,
+                'type1': pokemon.type1,
+                'type2': pokemon.type2,
+                'height': pokemon.height,
+                'weight': pokemon.weight,
+                'image_url': pokemon.image_url,
+                # 'image': pokemon.image
+                }
         return Response(response)
 
 # Retorna los pokemonos tipo flying (volador) y más altos a 10
@@ -112,14 +131,16 @@ class getTypeFlying(APIView):
         # if type1 or type2 of pokemon is flying and height is greater than 10 return all pokemon in the db
         for pokemon in Pokemon.objects.all():
             if (pokemon.type1 == 'flying' or pokemon.type2 == 'flying') and pokemon.height > 10:
-                reponsePokemon = {}
-                reponsePokemon['name'] = pokemon.name
-                reponsePokemon['type1'] = pokemon.type1
-                reponsePokemon['type2'] = pokemon.type2
-                reponsePokemon['height'] = pokemon.height
-                reponsePokemon['weight'] = pokemon.weight
-                reponsePokemon['image_url'] = pokemon.image_url
-                response[str(pokemon.id)] = reponsePokemon
+                response[pokemon.id] = {
+                'id': pokemon.id,
+                'name': pokemon.name,
+                'type1': pokemon.type1,
+                'type2': pokemon.type2,
+                'height': pokemon.height,
+                'weight': pokemon.weight,
+                'image_url': pokemon.image_url,
+                # 'image': pokemon.image
+                }
         return Response(response)
 
 # Eliminar todos los pokémones

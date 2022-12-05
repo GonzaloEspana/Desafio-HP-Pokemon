@@ -19,6 +19,7 @@ from api import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('api/getAllPokemons/', views.getAllPokemons.as_view()),
     path('api/generate_pokemons/', views.GeneratePokemons.as_view()),
     path('api/getTypeGrass/', views.getTypeGrass.as_view()),
     path('api/getByWeight/', views.getByWeight.as_view()),

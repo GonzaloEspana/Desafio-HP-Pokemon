@@ -1,0 +1,42 @@
+/* footer */
+.fter {
+  background: rgb(34, 34, 34);
+}
+
+.tree {
+  background-image: url(../images/trees_1.png);
+  width: 100%;
+  height: 50px;
+  background-repeat: repeat-x;
+}
+
+.pikachuRunning {
+  height: 40px;
+  width: auto;
+}
+
+.posititonPikachu {
+  position: relative;
+  overflow: hidden;
+  height: 40px;
+}
+
+.initialPikachu {
+  position: absolute;
+  left: 100%;
+  animation: move 13s linear infinite;
+}
+
+/* detiene a pikachu al pasar el cursos por encima */
+.initialPikachu:hover {
+  animation-play-state: paused;
+}
+
+@keyframes move {
+  from {
+    left: -25%;
+  }
+  to {
+    left: 100%;
+  }
+}

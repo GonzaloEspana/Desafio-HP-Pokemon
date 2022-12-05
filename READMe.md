@@ -9,20 +9,23 @@ Para utilizar el sitio, se debe tener instalado Node.js y Python 3.6. Para insta
 
 ## Uso
 
+<!-- chart of steps to develop -->
+
 Para activar el sitio se deben ejecutar los siguientes comandos:
--1. En la carpeta `frontend`
+
+- En la carpeta `frontend`
 
 ```bash
 npm start
 ```
 
--2. En la carpeta `backend`
+- En la carpeta `backend`
 
 ```bash
 python manage.py runserver
 ```
 
--3. En el navegador, ingresar a `localhost:3000`
+- En el navegador, ingresar a `localhost:3000`
 
 ## Errores y soluciones
 

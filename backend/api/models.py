@@ -6,8 +6,8 @@ class Pokemon(models.Model):
     #    https://pokemon.fandom.com/es/wiki/Primera_generaci%C3%B3n
     type1 = models.CharField(max_length=20)
     type2 = models.CharField(max_length=20, null=True, blank=True)
-    height = models.IntegerField()
-    weight = models.IntegerField()
+    height = models.FloatField()
+    weight = models.FloatField()
     image_url = models.CharField(max_length=200, null=True, blank=True)
     image = models.ImageField(upload_to='', null=True, blank=True)
 

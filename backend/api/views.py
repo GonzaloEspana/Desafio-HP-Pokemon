@@ -50,7 +50,7 @@ class GeneratePokemons(APIView):
                     type1=pokemon['types'][0]['type']['name'],
                     type2=pokemon['types'][1]['type']['name'] if len(pokemon['types']) > 1 else None,
                     height=pokemon['height'],
-                    weight=pokemon['weight'],
+                    weight=pokemon['weight']/10,
                     image_url=pokemon['sprites']['front_default'],
                     # image='uploads/'+str(i)+'.png'                    
                 )
@@ -143,6 +143,24 @@ class getTypeFlying(APIView):
                 }
         return Response(response)
 
+# Retorna todos los polemones pero con el nombre al revés
+class getReverseName(APIView):
+    def get(self, request, format=None):
+        response = {}
+        pokemons = Pokemon.objects.all()
+        for pokemon in pokemons:
+            response[pokemon.id] = {
+                'id': pokemon.id,
+                'name': pokemon.name[::-1],
+                'type1': pokemon.type1,
+                'type2': pokemon.type2,
+                'height': pokemon.height,
+                'weight': pokemon.weight,
+                'image_url': pokemon.image_url,
+                # 'image': pokemon.image
+            }
+        return Response(response)
+
 # Eliminar todos los pokémones
 class dropTablePokemon(APIView):
     def get(self, request, format=None):
@@ -155,3 +173,4 @@ class dropTablePokemon(APIView):
             response = {}
             response['message'] = 'table is empty'
             return Response(response)
+    

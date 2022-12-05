@@ -24,6 +24,7 @@ urlpatterns = [
     path('api/getTypeGrass/', views.getTypeGrass.as_view()),
     path('api/getByWeight/', views.getByWeight.as_view()),
     path('api/getTypeFlying/', views.getTypeFlying.as_view()),
+    path('api/getReverseName/', views.getReverseName.as_view()),
     path('api/delete/', views.dropTablePokemon.as_view()),
     
 ]

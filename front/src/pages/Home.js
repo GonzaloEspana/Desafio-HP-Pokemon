@@ -95,10 +95,10 @@ export function Home() {
                 Nombres invertidos
               </button>
             </div>
-            {/* fin lista de botones */}
           </div>
+          {/* fin lista de botones */}
 
-          {/* Sección mensaje de carga y tabla */}
+          {/* Sección mensajes de carga y tabla */}
           <div className="col-10">
             {/* se muestra un mensaje de espera hasta que la tabla está cargada*/}
             {contador === 0 ? (

@@ -1,19 +1,36 @@
-export function RowPokemon() {
+// Funcion que retorna los disintos campos pertenecientes a un pokemon (id, nombre, tipo, altura, peso)
+// Los campos generados corresponde a una fila de una tabla
+// pokemon: objeto que contiene los datos de un pokemon
+export function RowPokemon({ pokemon }) {
   return (
-    <tr>
+    <tr className="text-capitalize">
       <th scope="row">
         <img
-          src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/6.png"
-          // style="width: 40px; height: 40px; object-fit: cover;"
+          src={pokemon.image_url}
           style={{ width: "70px", height: "70px", objectFit: "cover" }}
           alt=""
         />
       </th>
-      <td>6</td>
-      <td>Charmander</td>
-      <td>Fuego</td>
-      <td>2 metros</td>
-      <td>240 kilos</td>
+      <td>{pokemon.id}</td>
+      <td>{pokemon.name}</td>
+      <td>
+        {/* Si existe type1 lo retorna en caso contrario retorna ""*/}
+        {pokemon.type1 ? pokemon.type1 : ""}
+        {/* Si existe type2 retorna "/ type2" caso contrario ""  */}
+        {pokemon.type2 ? ` / ${pokemon.type2}` : ""}
+      </td>
+      <td>
+        {/* Si la altura del pokemon es igual a 1 retorna "1 metro" en caso contrio "x metros" */}
+        {pokemon.height === 1
+          ? `${pokemon.height} metro`
+          : `${pokemon.height} metros`}
+      </td>
+      <td>
+        {/* Si el peso del pokemon es igual a 1 retorna "1 kilo" en caso contrio "x kilos" */}
+        {pokemon.weight === 1
+          ? `${pokemon.weight} kilo`
+          : `${pokemon.weight} kilos`}
+      </td>
     </tr>
   );
 }

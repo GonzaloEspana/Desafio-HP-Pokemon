@@ -1,7 +1,5 @@
 /* footer */
 .fter {
-  /* background: rgb(255, 82, 169); */
-  /* background-color: bisque; */
   background: rgb(34, 34, 34);
 }
 
@@ -27,6 +25,11 @@
   position: absolute;
   left: 100%;
   animation: move 13s linear infinite;
+}
+
+/* detiene a pikachu al pasar el cursos por encima */
+.initialPikachu:hover {
+  animation-play-state: paused;
 }
 
 @keyframes move {

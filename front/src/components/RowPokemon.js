@@ -1,19 +1,25 @@
-export function RowPokemon() {
+export function RowPokemon({ pokemon }) {
+  console.log(pokemon);
   return (
-    <tr>
+    <tr className="text-capitalize">
       <th scope="row">
         <img
-          src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/6.png"
+          src={pokemon.image_url}
           // style="width: 40px; height: 40px; object-fit: cover;"
           style={{ width: "70px", height: "70px", objectFit: "cover" }}
           alt=""
         />
       </th>
-      <td>6</td>
-      <td>Charmander</td>
-      <td>Fuego</td>
-      <td>2 metros</td>
-      <td>240 kilos</td>
+      <td>{pokemon.id}</td>
+      <td>{pokemon.name}</td>
+      <td>
+        {/* Si existe type1 lo retorna en caso contrario retorna ""*/}
+        {pokemon.type1 ? pokemon.type1 : ""}
+        {/* Si existe type2 retorna "/ type2" caso contrario ""  */}
+        {pokemon.type2 ? ` / ${pokemon.type2}` : ""}
+      </td>
+      <td>{pokemon.height} metros</td>
+      <td>{pokemon.weight} kilos</td>
     </tr>
   );
 }

@@ -25,7 +25,11 @@ npm start
 python manage.py runserver
 ```
 
-- En el navegador, ingresar a `localhost:3000`
+- En el navegador, ingresar a:
+
+```bash
+http://localhost:3000
+```
 
 ## Errores y soluciones
 
@@ -33,3 +37,11 @@ Si se arroja el siguiente mensaje:
 ![Error](./images/error.png)
 
 Esto se debe a que no se encuentra operativa la parte del backend, revisar que se esté ejecutando el comando `python manage.py runserver` en la carpeta `backend`.
+
+## Borrar base de datos
+
+Existe la opción de borrar todos los pokemones de la base de datos. Esto es porque los pokémones se cargan una única vez, si se quiere repetir el proceso de carga se debe ingresar al siguiente sitio:
+
+```bash
+http://localhost:8000/api/delete/
+```

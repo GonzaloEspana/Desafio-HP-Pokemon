@@ -6,7 +6,7 @@ import "./Home.css";
 export function Home() {
   // generar la variable de estado selector
   const [dataUrl, setDataUrl] = useState(
-    "http://127.0.0.1:8000/api/getAllPokemons/"
+    "http://localhost:8000/api/getAllPokemons/"
   );
   // variable que almacena la info de los pokemones en formato json
   const [pokemons, setPokemons] = useState([]);
@@ -15,7 +15,7 @@ export function Home() {
 
   // obtener los datos de la api por primerza y unica vez
   useEffect(() => {
-    fetch("http://127.0.0.1:8000/api/generate_pokemons/")
+    fetch("http://localhost:8000/api/generate_pokemons/")
       .then((response) => response.json())
       .then((data) => {
         console.log("entro a generar los pokemones");
@@ -24,6 +24,7 @@ export function Home() {
       })
       .catch((err) => {
         // console.log(err.message);
+        setContador(-1);
       });
   }, [contador]);
 
@@ -45,14 +46,14 @@ export function Home() {
     <>
       <div className="container">
         <div className="row justify-content-center">
-          <div className="col-8 pb-3">
-            {/* lista de botones */}
+          {/* lista de botones */}
+          <div className="col-12 pb-4">
             <div className="d-flex justify-content-center">
               <button
                 type="button"
                 className="btn rounded-5 fw-bolder btn-light btn-outline-dark mx-2"
                 onClick={() =>
-                  setDataUrl("http://127.0.0.1:8000/api/getAllPokemons/")
+                  setDataUrl("http://localhost:8000/api/getAllPokemons/")
                 }
               >
                 Todos
@@ -61,16 +62,16 @@ export function Home() {
                 type="button"
                 className="btn rounded-5 fw-bolder btn-light btn-outline-dark mx-2"
                 onClick={() =>
-                  setDataUrl("http://127.0.0.1:8000/api/getByWeight/")
+                  setDataUrl("http://localhost:8000/api/getByWeight/")
                 }
               >
-                Peso entre 30 y 80
+                Peso entre 30 y 80 kilos
               </button>
               <button
                 type="button"
                 className="btn rounded-5 fw-bolder btn-light btn-outline-dark mx-2"
                 onClick={() =>
-                  setDataUrl("http://127.0.0.1:8000/api/getTypeGrass/")
+                  setDataUrl("http://localhost:8000/api/getTypeGrass/")
                 }
               >
                 Tipo grass
@@ -79,16 +80,16 @@ export function Home() {
                 type="button"
                 className="btn rounded-5 fw-bolder btn-light btn-outline-dark mx-2"
                 onClick={() =>
-                  setDataUrl("http://127.0.0.1:8000/api/getTypeFlying/")
+                  setDataUrl("http://localhost:8000/api/getTypeFlying/")
                 }
               >
-                Tipo flying y más altos a 10
+                Tipo flying y más altos a 10 cm
               </button>
               <button
                 type="button"
                 className="btn rounded-5 fw-bolder btn-light btn-outline-dark mx-2"
                 onClick={() =>
-                  setDataUrl("http://127.0.0.1:8000/api/getReverseName/")
+                  setDataUrl("http://localhost:8000/api/getReverseName/")
                 }
               >
                 Nombres invertidos
@@ -111,6 +112,24 @@ export function Home() {
                     alt=""
                   />
                   <p className="fw-bolder display-6">Cargando Pokémones...</p>
+                </div>
+              </div>
+            ) : null}
+
+            {/* cuando la información no se pudo cargar se muestra un mensaje de error, ese caso es contador=-1 */}
+            {contador === -1 ? (
+              <div className="d-flex justify-content-center text-center">
+                <div>
+                  <img
+                    className="loading_pokeball"
+                    // pokebola hecha por kiwowork
+                    // https://www.deviantart.com/kiwowork/art/Pokeball-892727328
+                    src={require("../images/magikarp.gif")}
+                    alt=""
+                  />
+                  <p className="fw-bolder display-6">
+                    Falla de comunicación con la API
+                  </p>
                 </div>
               </div>
             ) : null}

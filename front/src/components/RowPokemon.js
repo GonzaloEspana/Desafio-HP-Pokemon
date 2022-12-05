@@ -1,11 +1,12 @@
+// Funcion que retorna los disintos campos pertenecientes a un pokemon (id, nombre, tipo, altura, peso)
+// Los campos generados corresponde a una fila de una tabla
+// pokemon: objeto que contiene los datos de un pokemon
 export function RowPokemon({ pokemon }) {
-  console.log(pokemon);
   return (
     <tr className="text-capitalize">
       <th scope="row">
         <img
           src={pokemon.image_url}
-          // style="width: 40px; height: 40px; object-fit: cover;"
           style={{ width: "70px", height: "70px", objectFit: "cover" }}
           alt=""
         />

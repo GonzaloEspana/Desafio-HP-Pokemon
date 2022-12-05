@@ -9,7 +9,7 @@ export function Home() {
     "http://127.0.0.1:8000/api/getAllPokemons/"
   );
   // variable que almacena la info de los pokemones en formato json
-  const [pokemons, setPokemons] = useState([""]);
+  const [pokemons, setPokemons] = useState([]);
   // variable contador, sirve para llamar a https://pokeapi.co/ una unica vez
   const [contador, setContador] = useState(0);
 
@@ -97,14 +97,11 @@ export function Home() {
             {/* fin lista de botones */}
           </div>
 
+          {/* Sección mensaje de carga y tabla */}
           <div className="col-10">
-            {/* <TablePokemon data={pokemons} /> */}
-            {/* show messaje until counter change */}
+            {/* se muestra un mensaje de espera hasta que la tabla está cargada*/}
             {contador === 0 ? (
               <div className="d-flex justify-content-center text-center">
-                {/* <div className="spinner-border text-dark mt-5" role="status">
-                  <span className="visually-hidden">Loading...</span>
-                </div> */}
                 <div>
                   <img
                     className="loading_pokeball"
@@ -116,9 +113,9 @@ export function Home() {
                   <p className="fw-bolder display-6">Cargando Pokémones...</p>
                 </div>
               </div>
-            ) : // pokedex loaded image
+            ) : null}
 
-            null}
+            {/* cuando la información ya está cargada se muestra la tabla, ese caso es contador=1 */}
             {contador === 1 ? (
               <div>
                 <TablePokemon data={pokemons} />

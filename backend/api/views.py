@@ -49,7 +49,7 @@ class GeneratePokemons(APIView):
                     name=pokemon['name'],
                     type1=pokemon['types'][0]['type']['name'],
                     type2=pokemon['types'][1]['type']['name'] if len(pokemon['types']) > 1 else None,
-                    height=pokemon['height'],
+                    height=pokemon['height']/10,
                     weight=pokemon['weight']/10,
                     image_url=pokemon['sprites']['front_default'],
                     # image='uploads/'+str(i)+'.png'                    

@@ -1,6 +1,7 @@
 import { TablePokemon } from "../components/TablePokemon";
 // import useState from react
 import { useState, useEffect } from "react";
+import "./Home.css";
 
 export function Home() {
   // generar la variable de estado selector
@@ -100,12 +101,24 @@ export function Home() {
             {/* <TablePokemon data={pokemons} /> */}
             {/* show messaje until counter change */}
             {contador === 0 ? (
-              <div className="d-flex justify-content-center">
-                <div className="spinner-border text-dark mt-5" role="status">
+              <div className="d-flex justify-content-center text-center">
+                {/* <div className="spinner-border text-dark mt-5" role="status">
                   <span className="visually-hidden">Loading...</span>
+                </div> */}
+                <div>
+                  <img
+                    className="loading_pokeball"
+                    // pokebola hecha por kiwowork
+                    // https://www.deviantart.com/kiwowork/art/Pokeball-892727328
+                    src={require("../images/pokebola.gif")}
+                    alt=""
+                  />
+                  <p className="fw-bolder display-6">Cargando Pokémones...</p>
                 </div>
               </div>
-            ) : null}
+            ) : // pokedex loaded image
+
+            null}
             {contador === 1 ? (
               <div>
                 <TablePokemon data={pokemons} />
